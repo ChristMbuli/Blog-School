@@ -1,0 +1,131 @@
+<div class="container mx-auto px-6 py-8">
+    <div class="grid grid-cols-3 gap-8">
+        <!-- Section Message -->
+        <div class="col-span-1">
+            <h1 class="text-xl font-bold text-gray-700">Messages</h1>
+            <div class="bg-white p-8 rounded-lg shadow-md">
+                <!-- Contenu de la section Messages -->
+                <!-- Ajoutez votre code ici -->
+            </div>
+        </div>
+
+        <!-- Section Publication -->
+        <div class="col-span-1">
+            <h1 class="text-xl font-bold text-gray-700 md:text-2xl">Publications</h1>
+            <div class="bg-white p-8 rounded-lg shadow-md">
+                <!-- Contenu de la section Publication -->
+                <!-- Ajoutez votre code ici -->
+            </div>
+        </div>
+
+        <!-- Section Profil -->
+        <div class="col-span-1">
+            <h1 class="text-xl font-bold text-gray-700">Profil</h1>
+            <div class="bg-white p-8 rounded-lg shadow-md">
+                <!-- Contenu de la section Profil -->
+                <!-- Ajoutez votre code ici -->
+            </div>
+        </div>
+    </div>
+</div>
+/////////////////////////////////
+<nav class="fixed top-0 w-full px-6 py-4 bg-white shadow z-50">
+    <div class="container flex items-center justify-between mx-auto">
+        <!-- Logo -->
+        <div class="text-xl font-bold text-gray-800 md:text-2xl">Brand</div>
+
+        <!-- Icône de menu déroulant (burger menu) pour les petits écrans -->
+        <button id="menu-button"
+            class="block md:hidden text-gray-800 hover:text-gray-600 focus:text-gray-600 focus:outline-none">
+            <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
+                <path
+                    d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2z">
+                </path>
+            </svg>
+        </button>
+
+        <!-- Éléments de navigation -->
+        <div id="nav-links" class="hidden md:flex md:items-center md:space-x-4">
+            <a href="#" class="text-gray-800 hover:text-blue-500">Accueil</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">Réseau</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">Messagerie</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">Connexion</a>
+
+        </div>
+    </div>
+</nav>
+
+<script>
+// Gestion du menu déroulant pour les petits écrans
+const menuButton = document.getElementById('menu-button');
+const navLinks = document.getElementById('nav-links');
+
+menuButton.addEventListener('click', function() {
+    // Alterner la visibilité des éléments de navigation
+    navLinks.classList.toggle('hidden');
+});
+</script>
+
+////////////////////////////////////////////////
+
+<section class="bg-white py-20 dark:bg-dark center-section">
+    <div class="container">
+        <div x-data="{activeIndex: 1}">
+            <div class="mb-6">
+                <div class="overflow-hidden rounded-xl">
+                    <img x-show="activeIndex === 1"
+                        src="https://res.cloudinary.com/do2qwucmp/image/upload/v1715158389/School/dsaauayjpk5bvznk4kvn.jpg"
+                        alt="gallery image" class="image w-full object-cover object-center" />
+                    <img x-show="activeIndex === 2"
+                        src="https://res.cloudinary.com/do2qwucmp/image/upload/v1715152983/School/a7wzxjjuj4ig90ff17ok.webp"
+                        alt="gallery image" class="image w-full object-cover object-center" />
+                    <img x-show="activeIndex === 3"
+                        src="https://res.cloudinary.com/do2qwucmp/image/upload/v1715152262/School/lw49pr0ogkqbsyvfkw60.jpg"
+                        alt="gallery image" class="image w-full object-cover object-center" />
+                </div>
+            </div>
+            <div class="flex items-center gap-2 sm:gap-4 md:gap-6">
+                <button @click="activeIndex = 1" :class=" activeIndex === 1 ? 'border-primary' : 'border-transparent' "
+                    class="thumbnail-button overflow-hidden rounded-lg border lg:rounded-xl">
+                    <img src="https://res.cloudinary.com/do2qwucmp/image/upload/v1715158389/School/dsaauayjpk5bvznk4kvn.jpg"
+                        alt="thumbnail-1" class="thumbnail-image w-full object-cover object-center" />
+                </button>
+                <button @click="activeIndex = 2" :class=" activeIndex === 2 ? 'border-primary' : 'border-transparent' "
+                    class="thumbnail-button overflow-hidden rounded-lg border lg:rounded-xl">
+                    <img src="https://res.cloudinary.com/do2qwucmp/image/upload/v1715152983/School/a7wzxjjuj4ig90ff17ok.webp"
+                        alt="thumbnail-2" class="thumbnail-image w-full object-cover object-center" />
+                </button>
+                <button @click="activeIndex = 3" :class=" activeIndex === 3 ? 'border-primary' : 'border-transparent' "
+                    class="thumbnail-button overflow-hidden rounded-lg border lg:rounded-xl">
+                    <img src="https://res.cloudinary.com/do2qwucmp/image/upload/v1715152262/School/lw49pr0ogkqbsyvfkw60.jpg"
+                        alt="thumbnail-3" class="thumbnail-image w-full object-cover object-center" />
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Centrage de la section */
+
+
+/* Fixer la taille des images et des miniatures */
+.image {
+    width: 400px;
+}
+
+.thumbnail-image {
+    width: 100px;
+    /* Ajustez selon vos besoins */
+    height: 100px;
+    /* Ajustez selon vos besoins */
+    object-fit: cover;
+}
+
+.thumbnail-button {
+    width: 100px;
+    /* Ajustez selon vos besoins */
+    height: 100px;
+    /* Ajustez selon vos besoins */
+}
+</style>
